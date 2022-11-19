@@ -8,8 +8,10 @@ Here, you can find many of my linux config files I wish to reuse on different ma
 We can't use `git clone` since the directory is not empty.
 1. cd `~/.config`
 2. `git init`
-3. `git remote add origin <github-repo>`
-4. `git pull origin main --allow-unrelated-histories` or `git pull origin main`
+3. `git remote add origin <github-repo>`.
+4. Make sure current branch is called `main`.
+5. Set tracking information for current branch `main` with `git branch --set-upstream-to=origin/main main`.
+6. `git pull`.
 
 ### Program doc
 + Display server : [Xorg](https://wiki.archlinux.org/title/xorg)
