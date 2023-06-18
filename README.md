@@ -25,7 +25,7 @@ We can't use `git clone` since the directory is not empty.
 4. Rename `dotfiles/` to `.config/` with `mv dotfiles/ .config`.
 5. Now, you should have merged the online dotfiles with the already created `.config`.
 
-## 🌲Programs
+## 🌱Programs
 
 + **Display server:** [Xorg](https://wiki.archlinux.org/title/xorg)
 + **Window manager:** [i3](https://i3wm.org/)
@@ -34,13 +34,19 @@ We can't use `git clone` since the directory is not empty.
 + **Multi-OS live USB:** [ventoy](https://www.ventoy.net/en/index.html)
 + **Screenshot tool:** [shutter](https://shutter-project.org/)
 + **Terminal:** [Kitty](https://github.com/kovidgoyal/kitty)
++ **Shell:** [bash](https://www.gnu.org/software/bash/)
++ **Terminal text editor:** [neovim](https://github.com/neovim/neovim)
++ **Neovim Config** : [astronvim](https://github.com/AstroNvim/AstroNvim)
 
 
 
 ## Fonts
 
+### Install fonts from [Nerd Fonts](https://www.nerdfonts.com/#home)
 
+Download the fonts you want, for instance **JetBrainsMono**, `unzip JetBrainsMono.zip`, then `mv *.ttf ~/.fonts/`. Now, update the font cache with `fc-cache -fv`. Remember to use a terminal application that support well Nerd Fonts like [Kitty](https://github.com/kovidgoyal/kitty).
 
+`$ fc-list | grep -i "JetBrains"`: list installed JetBrains fonts
 
 ## ⭐️ Credits
 

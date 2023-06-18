@@ -1,1 +1,6 @@
 nvim/ # contains external sub-repositories
+
+# by default, we don't want anything
+# use 'git add <path>' to add files to this repository
+*/
+*
