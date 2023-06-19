@@ -36,8 +36,8 @@ We can't use `git clone` since the directory is not empty.
 + **Terminal:** [Kitty](https://github.com/kovidgoyal/kitty)
 + **Shell:** [bash](https://www.gnu.org/software/bash/)
 + **Terminal text editor:** [neovim](https://github.com/neovim/neovim)
-+ **Neovim Config** : [astronvim](https://github.com/AstroNvim/AstroNvim)
-
++ **Neovim Config:** [astronvim](https://github.com/AstroNvim/AstroNvim)
++ **Application Launcher:** [rofi](https://github.com/davatorium/rofi)
 
 
 ## Fonts
