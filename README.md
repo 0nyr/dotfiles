@@ -38,6 +38,7 @@ We can't use `git clone` since the directory is not empty.
 + **Terminal text editor:** [neovim](https://github.com/neovim/neovim)
 + **Neovim Config:** [astronvim](https://github.com/AstroNvim/AstroNvim)
 + **Application Launcher:** [rofi](https://github.com/davatorium/rofi)
++ **Lock screen:** [i3lock-color](https://github.com/Raymo111/i3lock-color)
 
 
 ## Fonts
@@ -50,4 +51,4 @@ Download the fonts you want, for instance **JetBrainsMono**, `unzip JetBrainsMon
 
 ## ⭐️ Credits
 
-* Kitty and NeoVim: [kabinspace](https://github.com/kabinspace)
+* Kitty, Rofi and NeoVim: [kabinspace](https://github.com/kabinspace)
