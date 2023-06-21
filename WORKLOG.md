@@ -7,7 +7,13 @@
 * [ ] Increase size of **rofi** text
 * [ ] change rofi colors, remove useless stuff
 
-### Mon
+
+
+### Wed 21th Jun 2023
+
+Neo-Tree now shows hidden files by default.
+
+### Mon 19th Jun 2023
 
 Reworked the icon and colors of polybar.
 

@@ -1,0 +1,290 @@
+{
+    "telemetry.enableTelemetry": false,
+    "explorer.confirmDragAndDrop": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "java.semanticHighlighting.enabled": true,
+    "C_Cpp.updateChannel": "Insiders",
+    "code-runner.runInTerminal": true,
+    "vscode-md.options.mode": "wysiwyg",
+    "liveSassCompile.settings.formats": [
+
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/dist/css"
+        }
+    ],
+    "workbench.iconTheme": "vscode-icons",
+    "java.configuration.checkProjectSettingsExclusions": false,
+    "[typescript]": {
+        "editor.defaultFormatter": "denoland.vscode-deno"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "python.languageServer": "Default",
+    "liveshare.authenticationProvider": "GitHub",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "mssql.connections": [
+        {
+            "server": "{{put-server-name-here}}",
+            "database": "{{put-database-name-here}}",
+            "user": "{{put-username-here}}",
+            "password": ""
+        }
+    ],
+    "editor.inlineSuggest.enabled": true,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": true,
+        "markdown": false,
+        "scminput": false,
+        "yaml": false,
+        "haskell": true
+    },
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.intellisense.citation.backend": "biblatex",
+    "git.suggestSmartCommit": false,
+    "git.confirmSync": false,
+    "window.zoomLevel": 4,
+    "haskell.manageHLS": "GHCup",
+    "editor.minimap.enabled": false,
+    "latex-workshop.latex.recipe.default": "lastUsed",
+    "terminal.integrated.inheritEnv": false,
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk",
+            "tools": [
+                "latexmk"
+            ]
+        },
+        {
+            "name": "pdflatex with glossaries",
+            "tools": [
+                "pdflatex",
+                "makeglossaries",
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "latexmk (latexmkrc)",
+            "tools": [
+                "latexmk_rconly"
+            ]
+        },
+        {
+            "name": "latexmk (lualatex)",
+            "tools": [
+                "lualatexmk"
+            ]
+        },
+        {
+            "name": "latexmk (xelatex)",
+            "tools": [
+                "xelatexmk"
+            ]
+        },
+        {
+            "name": "pdflatex -> bibtex -> pdflatex * 2",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "Compile Rnw files",
+            "tools": [
+                "rnw2tex",
+                "latexmk"
+            ]
+        },
+        {
+            "name": "Compile Jnw files",
+            "tools": [
+                "jnw2tex",
+                "latexmk"
+            ]
+        },
+        {
+            "name": "Compile Pnw files",
+            "tools": [
+                "pnw2tex",
+                "latexmk"
+            ]
+        },
+        {
+            "name": "tectonic",
+            "tools": [
+                "tectonic"
+            ]
+        }
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "makeglossaries",
+            "command": "makeglossaries",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "pdflatexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "latexmk_rconly",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "-r",
+                "%DOCFILE%.latexmkrc",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "lualatexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-lualatex",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "xelatexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-xelatex",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "rnw2tex",
+            "command": "Rscript",
+            "args": [
+                "-e",
+                "library(knitr); knit('%DOCFILE_EXT%')"
+            ],
+            "env": {}
+        },
+        {
+            "name": "jnw2tex",
+            "command": "julia",
+            "args": [
+                "-e",
+                "using Weave; weave(\"%DOCFILE_EXT%\", doctype=\"tex\")"
+            ],
+            "env": {}
+        },
+        {
+            "name": "pnw2tex",
+            "command": "julia",
+            "args": [
+                "-e",
+                "using Pweave; Pweave.pweave(\"%DOCFILE_EXT%\",doctype=\"tex\")"
+            ],
+            "env": {}
+        },
+        {
+            "name": "tectonic",
+            "command": "tectonic",
+            "args": [
+                "%DOC%"
+            ],
+            "env": {}
+        }
+    ],
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#1c2128",
+        "titleBar.activeBackground": "#22272e",
+        "titleBar.activeForeground": "#adbac7",
+        "statusBar.background": "#1c2128",
+        "statusBar.foreground": "#adbac7",
+        "editor.background": "#22272e",
+        "editor.foreground": "#adbac7",
+        "editorCursor.foreground": "#00af87",
+        "editor.lineHighlightBackground": "#3f4142",
+        "editorLineNumber.foreground": "#adbac7",
+        "editorWhitespace.foreground": "#2d333b",
+        "editor.selectionBackground": "#3f4142",
+        "sideBar.background": "#1c2128",
+        "sideBar.foreground": "#adbac7",
+        "sideBarSectionHeader.background": "#1c2128",
+        "activityBar.foreground": "#00af87",
+        "terminal.ansiBlack": "#1c2128",
+        "terminal.ansiRed": "#d7005f",
+        "terminal.ansiGreen": "#00af87",
+        "terminal.ansiYellow": "#f0b746",
+        "terminal.ansiBlue": "#5f87ff",
+        "terminal.ansiMagenta": "#ff8700",
+        "terminal.ansiCyan": "#00afff",
+        "terminal.ansiWhite": "#adbac7",
+        "terminal.ansiBrightBlack": "#2d333b",
+        "terminal.ansiBrightRed": "#d7005f",
+        "terminal.ansiBrightGreen": "#00af87",
+        "terminal.ansiBrightYellow": "#f0b746",
+        "terminal.ansiBrightBlue": "#5f87ff",
+        "terminal.ansiBrightMagenta": "#ff8700",
+        "terminal.ansiBrightCyan": "#00afff",
+        "terminal.ansiBrightWhite": "#dcdcdc",
+        "terminal.background": "#22272e",
+        "terminal.foreground": "#adbac7"
+    }
+}
