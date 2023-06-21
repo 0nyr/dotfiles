@@ -50,7 +50,7 @@ bindsym Control+Mod1+y exec gnome-terminal # Ctrl+Alt+Y Opens a gnome terminal
 bindsym $mod+Shift+A kill
 
 # start dmenu (a program launcher)
-#bindsym $mod+d exec --no-startup-id "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#005577' -sf '#EEEEEE' -fn 'monospace-10'"
+bindsym $mod+Shift+d exec --no-startup-id "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#005577' -sf '#EEEEEE' -fn 'monospace-10'"
 # A more modern dmenu replacement is rofi:
 bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -201,17 +201,17 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #   #font pango:Dejavu Sans Mono 9
 #   font pango:'JetBrainsMono Nerd Font' 16
 #   mode dock
-#   position bottom
+#   position top
 #   tray_output eDP-1
-#   workspace_buttons yes
+#   workspace_buttons no
 #   strip_workspace_numbers yes
-#
-#
+
+
 #   colors {
 #     background #000000
 #     statusline #FFFFFF
 #     separator  #666666
-#
+
 #     focused_workspace  #83CAFA #51A2DA #FFFFFF
 #     active_workspace   #3C6EB4 #294172 #FFFFFF
 #     inactive_workspace #8C8C8C #4C4C4C #888888
