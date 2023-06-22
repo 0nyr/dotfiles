@@ -2,10 +2,13 @@
 
 * [ ] add interactive background app
 * [ ] change gnome GTK theme
-* [ ] Increase size of **rofi** text
-* [ ] change rofi colors, remove useless stuff
 
+### Thu 22nd Jun 2023
 
+I finally made the small display changes on **rofi**.
+
+* [X] change rofi colors, remove useless stuff
+* [X] Increase size of **rofi** text
 
 ### Wed 21th Jun 2023
 
