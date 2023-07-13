@@ -230,4 +230,10 @@ exec --no-startup-id shutter --min_at_startup
 assign [class="Firefox"] → $ws1
 assign [class="Thunderbird"] → $ws3
 
+# Add brightnessctl for brightness control
+# IDK why F1 and F2 are not recognized... with Fn...
+#bindsym XF86MonBrightnessUp exec brightness set +10% # increase screen XF86MonBrightnessUp
+bindsym --release $mod+F1 exec brightnessctl set 10%-
+#bindsym XF86MonBrightnessDown exec brightness set +10% # decrease screen brightness
+bindsym --release $mod+F2 exec brightnessctl set +10%
 

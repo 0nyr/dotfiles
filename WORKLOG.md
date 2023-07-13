@@ -2,6 +2,8 @@
 
 * [ ] add interactive background app
 * [ ] change gnome GTK theme
+* [ ] make vnim display just the line basic number, not relative to cursor but to beginning of file.
+* [ ] remove the CTRL-Q mapping, it's really useless and dangerous...
 
 ### Thu 22nd Jun 2023
 
