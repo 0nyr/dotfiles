@@ -49,7 +49,6 @@
     "latex-workshop.intellisense.citation.backend": "biblatex",
     "git.suggestSmartCommit": false,
     "git.confirmSync": false,
-    "window.zoomLevel": 4,
     "haskell.manageHLS": "GHCup",
     "editor.minimap.enabled": false,
     "latex-workshop.latex.recipe.default": "lastUsed",
@@ -286,5 +285,26 @@
         "terminal.ansiBrightWhite": "#dcdcdc",
         "terminal.background": "#22272e",
         "terminal.foreground": "#adbac7"
-    }
-}
+    },
+    "window.zoomLevel": 3,
+    // dealing with fonts
+    "editor.fontFamily": "'CustomJetBrainsMonoNFFantasqueSansMNF', monospace",
+    "editor.fontLigatures": true,
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "comment",
+                "settings": {
+                    "fontStyle": "italic"
+                }
+            }
+        ]
+    }    
+} // comment |> like this you know. Once upon a time... 
+// JetBrainsMono Nerd Font
+// Monofur Nerd Font 󱟤
+// FiraCode Nerd Font 󱟤
+// FantasqueSansM Nerd Font
+// Victor Mono
+// try a mix between FantasqueSansM Nerd Font and JetBrainsMono Nerd Font
+// CustomJetBrainsMonoNFFantasqueSansMNF

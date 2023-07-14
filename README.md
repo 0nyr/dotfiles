@@ -40,15 +40,56 @@ We can't use `git clone` since the directory is not empty.
 + **Application Launcher:** [rofi](https://github.com/davatorium/rofi)
 + **Lock screen:** [i3lock-color](https://github.com/Raymo111/i3lock-color)
 
-
 ## Fonts
 
 ### Install fonts from [Nerd Fonts](https://www.nerdfonts.com/#home)
 
-Download the fonts you want, for instance **JetBrainsMono**, `unzip JetBrainsMono.zip`, then `mv *.ttf ~/.fonts/`. Now, update the font cache with `fc-cache -fv`. Remember to use a terminal application that support well Nerd Fonts like [Kitty](https://github.com/kovidgoyal/kitty).
+Download the fonts you want, for instance **JetBrainsMono**, `unzip JetBrainsMono.zip`, then `mv *.ttf ~/.fonts/`. Now, update the font cache with `fc-cache -fv`. You can check for installed fonts with `fc-list | grep "SomeFontName"`.
+
+> Remember to use a terminal application that support well Nerd Fonts like [Kitty](https://github.com/kovidgoyal/kitty).
 
 `$ fc-list | grep -i "JetBrains"`: list installed JetBrains fonts
+
+### Build own custom font
+
+[From StackOverflow](https://stackoverflow.com/a/67694013/10798114)
+
+VScode does't allow to use different fonts for comments by default. But it's possible to set comment to be in italic.
+
+```json
+"editor.tokenColorCustomizations": {
+    "textMateRules": [
+        {
+            "scope": "comment",
+            "settings": {
+                "fontStyle": "italic"
+            }
+        }
+    ]
+}
+```
+
+Knowing this, the trick is to combine the two fonts you want to use with a tool like [FontForge](https://fontforge.org/en-US/) and then set this font into VSCode
+
+```json
+"editor.fontFamily": "'CustomJetBrainsMonoNFFantasqueSansMNF', monospace",
+    "editor.fontLigatures": true,
+```
+
+This font is a combination of 2 Nerd fonts WITH ligatures: `FantasqueSansM Nerd Font` for the italic font, and `JetBrainsMono Nerd Font` for the regular font.
+
+You can find my custom fonts inside `custom_fonts/`.
+
+You can install this font by copying the .ttf files to `~/.fonts/` and, update the font cache with `fc-cache -fv`. Make sure to close all open instances of VSCode for the font reload to be applied.
+
+My VSCode using `CustomJetBrainsMonoNFFantasqueSansMNF`:
+
+![vscode screenshot](./img/screenshots/screenshoot_2023_07_12_vscode.png)
+
+You can find my VSCode User `settings.json` [here](./Code/User/settings.json). 
+
 
 ## ⭐️ Credits
 
 * Kitty, Rofi and NeoVim: [kabinspace](https://github.com/kabinspace)
+* Fonts by [NerdFonts](https://www.nerdfonts.com/#home).
