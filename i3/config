@@ -43,7 +43,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
-bindsym Control+Mod1+t exec /home/onyr/.local/kitty.app/bin/kitty # Ctrl+Alt+T Opens a kitty terminal
+bindsym Control+Mod1+t exec kitty # Ctrl+Alt+T Opens a kitty terminal
 bindsym Control+Mod1+y exec gnome-terminal # Ctrl+Alt+Y Opens a gnome terminal
 
 # kill focused window
@@ -237,3 +237,5 @@ bindsym --release $mod+F1 exec brightnessctl set 10%-
 #bindsym XF86MonBrightnessDown exec brightness set +10% # decrease screen brightness
 bindsym --release $mod+F2 exec brightnessctl set +10%
 
+# add image background
+feh --bg-scale $HOME/.config/polybar/launch.sh
