@@ -5,6 +5,11 @@
 * [ ] make vnim display just the line basic number, not relative to cursor but to beginning of file.
 * [ ] remove the CTRL-Q mapping, it's really useless and dangerous...
 
+### Sun 10th Sep 2023
+
+* Added Rofi-powered powermenu on Polybar and a keyboard shortcut on i3.
+* Added new commands and startup defaults for i3.
+
 ### Thu 22nd Jun 2023
 
 I finally made the small display changes on **rofi**.
