@@ -25,8 +25,8 @@ exec --no-startup-id dex-autostart --autostart --environment i3
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 #exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-# screen lock (2min)
-exec "xset s 120"
+# screen lock (10min)
+exec "xset s 600"
 exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/.config/i3lock-color/lock.sh --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
@@ -158,6 +158,8 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 # launch custom powermenu
 bindsym $mod+Shift+p exec "sh $HOME/.config/polybar/scripts/powermenu.sh"
+# launch custom openvpn menu
+bindsym $mod+Shift+o exec "sh $HOME/.config/openvpn/openvpn_menu.sh"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

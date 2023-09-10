@@ -6,22 +6,22 @@ OPTIONS=" Lock\n󰗽 Logout\n󱄋 Reboot\n⏻ Shutdown\n Cancel"
 CHOICE=$(echo -e $OPTIONS | rofi -dmenu -p "System")
 
 case $CHOICE in
-     Lock)
+    " Lock")
         # lock i3 session (keep )
         $HOME/.config/polybar/scripts/lock.sh
         ;;
-    󰗽 Logout)
+    "󰗽 Logout")
         # thunderbird doexn't exit properly at logout
         # so we kill it manually
         pkill thunderbird ; i3-msg exit
         ;;
-    󱄋 Reboot)
+    "󱄋 Reboot")
         systemctl reboot
         ;;
-    ⏻ Shutdown)
+    "⏻ Shutdown")
         systemctl poweroff
         ;;
-     Cancel)
+    " Cancel")
         
         ;;
 esac
