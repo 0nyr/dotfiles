@@ -86,8 +86,7 @@ My VSCode using `CustomJetBrainsMonoNFFantasqueSansMNF`:
 
 ![vscode screenshot](./img/screenshots/screenshoot_2023_07_12_vscode.png)
 
-You can find my VSCode User `settings.json` [here](./Code/User/settings.json). 
-
+You can find my VSCode User `settings.json` [here](./Code/User/settings.json).
 
 ## ⭐️ Credits
 
