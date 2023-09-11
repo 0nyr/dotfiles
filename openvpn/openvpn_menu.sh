@@ -14,7 +14,7 @@ case $CHOICE in
         ;;
     " Uni Passau Server")
         # Connect to Uni Passau Server
-        kitty -e bash -c "sshpass -p $UNI_PASSAU_SERVER_PASSWORD ssh -p $UNI_PASSAU_SERVER_PORT $UNI_PASSAU_USER@$UNI_PASSAU_SERVER; echo -e \"Waiting 100s...\"; sleep 100"
+        kitty -e bash -c "export TERM=xterm-256color; sshpass -p $UNI_PASSAU_SERVER_PASSWORD ssh -t -p $UNI_PASSAU_SERVER_PORT $UNI_PASSAU_USER@$UNI_PASSAU_SERVER; echo -e \"Waiting 100s...\"; sleep 100"
         ;;
     " Cancel")
         ;;
