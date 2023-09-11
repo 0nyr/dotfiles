@@ -1,0 +1,12 @@
+{
+    "dir_with_projects": [
+        "~/code",
+        "~/code/phdtrack",
+        "~/Documents/5passau"
+    ],
+    "manual_projects": [
+        "~/.config",
+        "~/nixos-config",
+        "~/custom_bash"
+    ]
+}

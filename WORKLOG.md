@@ -5,6 +5,12 @@
 * [ ] make vnim display just the line basic number, not relative to cursor but to beginning of file.
 * [ ] remove the CTRL-Q mapping, it's really useless and dangerous...
 
+### Mon 11th Sep 2023
+
+* Added Rofi-menu for opening terminal and VSCode.
+
+* [ ] Copy Clément's config for custom clipboard.
+
 ### Sun 10th Sep 2023
 
 * Added Rofi-powered powermenu on Polybar and a keyboard shortcut on i3.

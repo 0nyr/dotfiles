@@ -150,6 +150,10 @@ bindsym $mod+Shift+agrave move container to workspace number $ws10
 bindsym --whole-window $mod+Tab workspace next_on_output
 bindsym --whole-window $mod+shift+Tab workspace prev_on_output
 
+# ------------------------------------------
+# Custom command shortcuts
+# ------------------------------------------
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -160,6 +164,11 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+Shift+p exec "sh $HOME/.config/polybar/scripts/powermenu.sh"
 # launch custom openvpn menu
 bindsym $mod+Shift+o exec "sh $HOME/.config/openvpn/openvpn_menu.sh"
+# launch custom terminal menu
+bindsym $mod+t exec "cd $HOME/.config/i3/scripts/code_menu && python code_menu.py -c kitty"
+# launch custom code menu
+bindsym $mod+Shift+t exec "cd $HOME/.config/i3/scripts/code_menu && python code_menu.py -c code"
+
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
