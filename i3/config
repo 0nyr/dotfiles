@@ -111,16 +111,16 @@ bindsym $mod+q focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
+set $ws1 "1:"
+set $ws2 "2:"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws9 "9:"
+set $ws10 "10:"
 
 # switch to workspace
 bindsym $mod+ampersand workspace number $ws1
@@ -153,6 +153,7 @@ bindsym --whole-window $mod+shift+Tab workspace prev_on_output
 # ------------------------------------------
 # Custom command shortcuts
 # ------------------------------------------
+set $greenclip_script $HOME/.config/i3/scripts/greenclip_menu.sh
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -168,7 +169,8 @@ bindsym $mod+Shift+o exec "sh $HOME/.config/openvpn/openvpn_menu.sh"
 bindsym $mod+t exec "cd $HOME/.config/i3/scripts/code_menu && python code_menu.py -c kitty"
 # launch custom code menu
 bindsym $mod+Shift+t exec "cd $HOME/.config/i3/scripts/code_menu && python code_menu.py -c code"
-
+# greenclip
+bindsym $mod+Shift+g exec --no-startup-id "sh $greenclip_script"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -216,6 +218,9 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 bindsym Print exec --no-startup-id shutter -s
 exec --no-startup-id shutter --min_at_startup
 
+# clipboard
+exec --no-startup-id "greenclip daemon"
+
 # assigning windows to workspaces
 assign [class="Firefox"] → $ws1
 assign [class="Thunderbird"] → $ws3
@@ -224,8 +229,8 @@ assign [class="Thunderbird"] → $ws3
 # to identify the class of the window : xprop 
 # then click on the window
 assign [class="(?i)firefox"] $ws1
+assign [class="discord"] $ws8
 assign [class="Thunderbird"] $ws9
-assign [class="discord"] $ws10
 
 # Add brightnessctl for brightness control
 # IDK why F1 and F2 are not recognized... with Fn...
@@ -246,6 +251,10 @@ exec --no-startup-id feh --bg-scale $HOME/.config/i3/wallpaper/adwaita-d.webp
 # NOTE : discord must in first, else it will swallow the firefox window for 
 # whatever reason
 # ------------------------------------------
+# start firefox
 exec i3-msg "workspace $ws1; exec firefox"
-exec i3-msg "workspace $ws10; exec sleep 2 && thunderbird"
+# start thunderbird, wait 2s before to avoid error message
+exec i3-msg "workspace $ws9; exec sleep 2 && thunderbird"
+# start stacer
+exec i3-msg "workspace $ws10; exec stacer"
 
