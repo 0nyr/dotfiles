@@ -10,7 +10,7 @@ import enum
 
 # create command enum
 class Command(enum.Enum):
-    CODE = "code"
+    CODE = "nix develop && code"
     KITTY = "kitty"
 
 # take parameter -c "code" or "kitty"
@@ -92,6 +92,22 @@ for project in list_of_projects:
         break
 
 # open project in VS Code or Kitty terminal
-final_command_to_execute = input_command.value + " " + rofi_return_expanded
+if input_command == Command.CODE:
+    # in this situation, we have two cases:
+    # 1. project_dir is a directory containing a flake.nix file -> need to run nix develop before opening VS Code
+    # 2. project_dir is a directory contains no flake.nix file -> just open VS Code*
+    potential_flake_nix_path = os.path.expanduser(os.path.join(project_dir, "flake.nix"))
+    print("potential_flake_nix_path:", potential_flake_nix_path)
+    is_flake_nix = os.path.isfile(potential_flake_nix_path)
+    print("flake.nix exists:", is_flake_nix)
+    if is_flake_nix:
+        # example: cd ~/code/phdtrack/data_processing_masterarbeit && nix develop && code .
+        final_command_to_execute = "cd " + project_dir + " && nix develop --command bash -c \"code .\""
+    else:
+        # example: code ~/.config
+        final_command_to_execute = "cd " + project_dir + " && code ."
+    print("final_command_to_execute:", final_command_to_execute)
+elif input_command == Command.KITTY:
+    final_command_to_execute = input_command.value + " " + rofi_return_expanded
 
 execute(final_command_to_execute)
