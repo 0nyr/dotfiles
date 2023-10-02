@@ -1,5 +1,6 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
+    // panel controls
     {
         "key": "alt+a",
         "command": "workbench.action.closeActiveEditor"
@@ -15,5 +16,18 @@
     {
         "key": "alt+s alt+6",
         "command": "workbench.action.splitEditorRight"
+    },
+    // terminal 
+    {
+        "key": "alt+left",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": { "text": "\u001b[1;3D" },
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+right",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": { "text": "\u001b[1;3C" },
+        "when": "terminalFocus"
     }
 ]

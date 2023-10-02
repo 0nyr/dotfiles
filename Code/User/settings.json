@@ -1,41 +1,14 @@
 {
-    "telemetry.enableTelemetry": false,
+    "telemetry.telemetryLevel": "off",
     "explorer.confirmDragAndDrop": false,
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "java.semanticHighlighting.enabled": true,
-    "C_Cpp.updateChannel": "Insiders",
-    "code-runner.runInTerminal": true,
     "vscode-md.options.mode": "wysiwyg",
-    "liveSassCompile.settings.formats": [
-
-        {
-            "format": "expanded",
-            "extensionName": ".css",
-            "savePath": "/dist/css"
-        }
-    ],
     "workbench.iconTheme": "vscode-icons",
-    "java.configuration.checkProjectSettingsExclusions": false,
-    "[typescript]": {
-        "editor.defaultFormatter": "denoland.vscode-deno"
-    },
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
     "python.languageServer": "Default",
-    "liveshare.authenticationProvider": "GitHub",
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter.notebook.ipynb"
-    },
-    "mssql.connections": [
-        {
-            "server": "{{put-server-name-here}}",
-            "database": "{{put-database-name-here}}",
-            "user": "{{put-username-here}}",
-            "password": ""
-        }
-    ],
     "editor.inlineSuggest.enabled": true,
     "github.copilot.enable": {
         "*": true,
@@ -52,7 +25,6 @@
     "haskell.manageHLS": "GHCup",
     "editor.minimap.enabled": false,
     "latex-workshop.latex.recipe.default": "lastUsed",
-    "terminal.integrated.inheritEnv": false,
     "latex-workshop.latex.recipes": [
         {
             "name": "latexmk",
@@ -288,7 +260,7 @@
     },
     "window.zoomLevel": 3,
     // dealing with fonts
-    "editor.fontFamily": "'CustomJetBrainsMonoNFFantasqueSansMNF', monospace",
+    "editor.fontFamily": "'CustomJetBrainsMonoNFFantasqueSansMNF', 'JetBrainsMono Nerd Font', 'FiraCode Nerd Font Mono', monospace",
     "editor.fontLigatures": true,
     "editor.tokenColorCustomizations": {
         "textMateRules": [
@@ -300,8 +272,44 @@
             }
         ]
     },
-    "trunk.trunkGrayOutNonBlockingIssues": false,
-    "python.testing.pytestEnabled": true
+    "python.testing.pytestEnabled": true, 
+    // terminal
+    "terminal.integrated.shellIntegration.enabled": true,
+    "terminal.integrated.shellIntegration.decorationsEnabled": "both",
+    "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', monospace",
+    "terminal.integrated.defaultProfile.linux": "0nyr-bash",
+    "terminal.integrated.profiles.linux": {
+        "0nyr-bash": {
+            "path": "bash",
+            "args": [],
+            "icon": "terminal-bash",
+            "colorTheme": "One Dark Pro",
+        },
+        "simple-bash": {
+            "path": "bash",
+            "args": ["--rcfile", "/home/onyr/custom_bash/vscode/custom_shell.sh"],
+            "icon": "terminal-bash",
+            "colorTheme": "One Dark Pro",
+            "env": {
+                "PS1": "\\[033[38;5;10m\\]\\u\\[\\033[38;5;15m\\]@\\[\\033[38;5;10m\\]\\h\\[\\033[38;5;15m\\]:\\[\\033[38;5;6m\\]\\w\\[\\033[38;5;15m\\]\\$ ",
+                "TERM": "xterm-kitty",
+                "COLORTERM": "truecolor",
+                "EDITOR": "nano"
+            }
+        },
+        "no-profile-bash": {
+            "path": "bash",
+            "args": ["--norc", "--noprofile"],
+            "icon": "terminal-bash",
+            "colorTheme": "One Dark Pro",
+            "env": {
+                "PS1": "\\u@\\h:\\w\\$ ",
+                "TERM": "xterm-256color",
+                "COLORTERM": "truecolor",
+                "EDITOR": "vim"
+            }
+        }
+    },
 } // comment |> like this you know. Once upon a time... 
 // JetBrainsMono Nerd Font
 // Monofur Nerd Font 󱟤
