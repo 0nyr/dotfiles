@@ -274,6 +274,7 @@
     },
     "python.testing.pytestEnabled": true, 
     // terminal
+    // https://unix.stackexchange.com/questions/103608/is-there-any-reason-why-i-get-a-when-i-press-up-arrow-at-the-console-login-sc
     "terminal.integrated.shellIntegration.enabled": true,
     "terminal.integrated.shellIntegration.decorationsEnabled": "both",
     "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', monospace",
