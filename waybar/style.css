@@ -1,7 +1,10 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'JetBrainsMono Nerd Font', FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 20px;
+    border-radius: 15px;
+    margin-left: 2px;
+    margin-right: 2px;
 }
 
 window#waybar {
@@ -10,6 +13,7 @@ window#waybar {
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
+    border-radius: 0;
 }
 
 window#waybar.hidden {

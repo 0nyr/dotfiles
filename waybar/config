@@ -12,7 +12,7 @@
     },
     "battery": {
 		"format": "{capacity}% {icon}",
-		"format-icons": ["", "", "", "", ""]
+		"format-icons": [" ", " ", " ", " ", " "]
 	},
     "cpu": {
         "format": "{usage}%"
