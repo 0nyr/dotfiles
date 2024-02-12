@@ -96,7 +96,9 @@ button:hover {
     color: #ffffff;
 }
 
-#window,
+#window {
+    margin-left: 20px;
+}
 #workspaces {
     margin: 0 4px;
 }
