@@ -294,7 +294,7 @@ assign [class="Thunderbird"] → $ws3
 # workspace assigned
 # to identify the class of the window : xprop 
 # then click on the window
-#assign [class="(?i)firefox"] $ws1
+#assign [class="(?i)firefox"] $ws1P
 assign [class="discord"] $ws8
 assign [class="Thunderbird"] $ws9
 
