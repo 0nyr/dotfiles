@@ -3,7 +3,7 @@
     "position": "top",
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["network", "bluetooth", "pulseaudio", "battery", "cpu", "memory", "clock"],
+    "modules-right": ["network", "bluetooth", "pulseaudio", "battery", "cpu", "memory", "clock", "tray"],
     "hyprland/window": {
         "max-length": 50
     },
@@ -21,14 +21,31 @@
         "format": "{used}/{total} GB"
     },
     "network": {
-        "interface": "wlan0",
-        "format": "{essid} {ip}",
-        "format-disconnected": "No network",
-        "format-alt": "{interface}"
+        "format-wifi": "{essid} ({signalStrength}%)  ",
+        "format-ethernet": "󰈀 {ifname}",
+        "tooltip-format": " {ifname} via {gwaddr}",
+        "format-linked": "󰈀 {ifname} (No IP)",
+        "format-disconnected": "Disconnected ⚠ {ifname}",
+        "format-alt": "󰲐 {ifname}: {ipaddr}/{cidr}",
+        "on-click": "nm-connection-editor"
     },
     "pulseaudio": {
-        "format": "{volume}% {icon}",
-        "format-muted": "Muted {icon}"
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": " {icon} {volume}% {format_source}",
+        "format-bluetooth-muted": "  {icon} {format_source}",
+        "format-muted": "  {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+           "headphone": " ",
+           "hands-free": "",
+           "headset": "",
+           "phone": "",
+           "portable": "",
+           "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
     },
     "bluetooth": {
         "format": "{icon}",
