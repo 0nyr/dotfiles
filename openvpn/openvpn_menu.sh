@@ -5,7 +5,7 @@ ENV_FILE=~/.config/openvpn/.env
 source $ENV_FILE
 
 # Rofi menu
-OPTIONS="󰒄 Uni Passau VPN\n󰒄 INSA Lyon VPN\n Uni Passau Server - deathstar\n Uni Passau Server - drogon\n Cancel"
+OPTIONS="󰒄 Uni Passau VPN\n󰒄 INSA Lyon VPN\n󰒄 Inria VPN\n Uni Passau Server - deathstar\n Uni Passau Server - drogon\n Cancel"
 CHOICE=$(echo -e $OPTIONS | rofi -dmenu -p "System")
 
 # NOTE: Don't forget to add new entry to $OPTIONS variable
@@ -17,6 +17,11 @@ case $CHOICE in
     "󰒄 INSA Lyon VPN")
         # VPN INSA Lyon
         kitty -e bash -c "source $ENV_FILE; echo -e \"$INSA_LYON_PASSWORD\" | sudo openconnect --protocol anyconnect --user $INSA_LYON_LOGIN --authgroup $INSA_LYON_GROUP --server sslvpn.cisr.fr; echo -e \"Waiting 100s...\"; sleep 100"
+        ;;
+    "󰒄 Inria VPN")
+        # VPN INSA Lyon
+        # manual: sudo openconnect --protocol anyconnect --user ***** --server vpn.inria.fr
+        kitty -e bash -c "source $ENV_FILE; echo -e \"$INRIA_PASSWORD\" | sudo openconnect --protocol anyconnect --user $INRIA_LOGIN --server vpn.inria.fr; echo -e \"Waiting 100s...\"; sleep 100"
         ;;
     " Uni Passau Server - deathstar")
         # Connect to Uni Passau Server
