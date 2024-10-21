@@ -1,5 +1,7 @@
 # Dunst Notifications
 
+[Dunst doc](https://dunst-project.org/documentation/)
+
 ### Commands
 
 `dunstctl history`: See notifications in history.
