@@ -22,6 +22,15 @@ exec --no-startup-id dex-autostart --autostart --environment i3
 # Start notification daemon
 exec --no-startup-id dunst --startup_notification "The only way out is through."
 
+# Close the currently displayed notification
+bindsym $mod+b exec --no-startup-id dunstctl close
+# Close all currently displayed notifications
+bindsym $mod+Shift+b exec --no-startup-id dunstctl close-all
+# Recall the most recent notification from history
+bindsym $mod+n exec --no-startup-id dunstctl history-pop
+# Open the context menu for the current notification (if applicable)
+bindsym $mod+Shift+n exec --no-startup-id dunstctl context
+
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
