@@ -309,6 +309,7 @@ assign [class="Thunderbird"] → $ws3
 #assign [class="(?i)firefox"] $ws1P
 assign [class="discord"] $ws8
 assign [class="Thunderbird"] $ws9
+assign [class="stacer"] $ws10
 
 # Add brightnessctl for brightness control
 # IDK why F1 and F2 are not recognized... with Fn...
