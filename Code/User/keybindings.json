@@ -10,11 +10,11 @@
         "command": "-workbench.action.closeActiveEditor"
     },
     {
-        "key": "alt+s alt+8",
+        "key": "alt+s alt+8", // press successivelly ALT+KEY
         "command": "workbench.action.splitEditorDown"
     },
     {
-        "key": "alt+s alt+6",
+        "key": "alt+s alt+6", // press successivelly ALT+KEY
         "command": "workbench.action.splitEditorRight"
     },
     // terminal 
