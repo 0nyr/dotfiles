@@ -1,0 +1,9 @@
+[global]
+font = Monospace 18
+icon_path = /run/current-system/sw/share/icons/Adwaita
+icon_theme = Adwaita
+width = (200, 800)
+height = 600
+enable_recursive_icon_lookup = true
+history_length = 15
+dmenu = rofi -modi drun,run -show drun
