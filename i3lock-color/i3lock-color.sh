@@ -41,7 +41,7 @@ i3lock-color \
        --inside-color=$BACKGROUND_WINDOW_DARK --ring-color=$GREEN \
        --line-uses-inside \
        --keyhl-color=$ORANGE --bshl-color=$CYAN \
-       --separator-color=$BACKGROUND_WINDOW_NORMAL \r
+       --separator-color=$BACKGROUND_WINDOW_NORMAL \
        --verif-color=$TEXT_NORMAL --wrong-color=$TEXT_NORMAL --layout-color=$TEXT_NORMAL \
        --date-color=$TEXT_BRIGHT --time-color=$TEXT_BRIGHT \
        --screen 1 --clock --indicator \
