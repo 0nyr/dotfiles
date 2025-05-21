@@ -316,5 +316,14 @@
         "--message-format=json",
         "--all-targets",
         "--keep-going"
-    ]
+    ],
+    "editor.minimap.enabled": false,
+    "C_Cpp.default.compilerPath": "/nix/store/ii75mhh7sxl11167m1b86p0qrjsjyjmd-gcc-wrapper-14-20241116/bin/g++",
+    "diffEditor.ignoreTrimWhitespace": true,
+    "jupyter.askForKernelRestart": false,
+    "jupyter.widgetScriptSources": [
+        "jsdelivr.com",
+        "unpkg.com"
+    ],
+    "python.analysis.typeCheckingMode": "standard"
 }

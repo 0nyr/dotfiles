@@ -34,18 +34,19 @@ BLUE="${BLUE}ff"
 CYAN="${CYAN}ff"
 
 # Run i3lock-color with the specified colors
-i3lock --color=$BACKGROUND_WINDOW_DARK --inside-color=$BACKGROUND_WINDOW_NORMAL \
+i3lock-color \
+       --color=$BACKGROUND_WINDOW_DARK --inside-color=$BACKGROUND_WINDOW_NORMAL \
        --insidever-color=$ORANGE --ringver-color=$YELLOW \
        --insidewrong-color=$RED --ringwrong-color=$RED \
        --inside-color=$BACKGROUND_WINDOW_DARK --ring-color=$GREEN \
        --line-uses-inside \
        --keyhl-color=$ORANGE --bshl-color=$CYAN \
-       --separator-color=$BACKGROUND_WINDOW_NORMAL \
+       --separator-color=$BACKGROUND_WINDOW_NORMAL \r
        --verif-color=$TEXT_NORMAL --wrong-color=$TEXT_NORMAL --layout-color=$TEXT_NORMAL \
        --date-color=$TEXT_BRIGHT --time-color=$TEXT_BRIGHT \
        --screen 1 --clock --indicator \
        --date-str="%A, %m %Y" --time-size=48 --date-size=24 \
        --radius=200 \
-      --time-font="JetBrains Mono Nerd Font" --date-font="JetBrains Mono Nerd Font" \
+       --time-font="JetBrains Mono Nerd Font" --date-font="JetBrains Mono Nerd Font" \
        --layout-font="JetBrains Mono Nerd Font" --verif-font="JetBrains Mono Nerd Font" \
        --wrong-font="JetBrains Mono Nerd Font"

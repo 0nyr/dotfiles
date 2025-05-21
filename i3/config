@@ -38,8 +38,8 @@ bindsym $mod+Shift+n exec --no-startup-id dunstctl context
 # screen before suspend. Use loginctl lock-session to lock your screen.
 #exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # screen lock (10min)
-exec "xset s 600"
-exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/.config/i3lock-color/lock.sh --nofork
+exec "xset s 3600"
+exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/.config/i3lock-color/i3lock-color.sh --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
