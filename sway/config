@@ -19,7 +19,8 @@ exec_always {
 }
 
 ### Wallpaper ###
-output * bg ~/.config/i3/wallpaper/adwaita-d.webp fill
+# WARN: Doesn't support .webp
+output "*" bg /home/onyr/Pictures/wallpapers/IMG_0307.JPG fill
 
 ### Autostart ###&
 exec dunst
