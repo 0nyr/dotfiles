@@ -330,5 +330,6 @@
         "jsdelivr.com",
         "unpkg.com"
     ],
-    "python.analysis.typeCheckingMode": "standard"
+    "python.analysis.typeCheckingMode": "standard",
+    "git.confirmSync": false
 }

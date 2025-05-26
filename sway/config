@@ -1,0 +1,254 @@
+# Onyr i3 config
+
+### Layout & Keyboard ###
+input * {
+  xkb_layout fr
+  xkb_variant ""
+}
+set $mod Mod4
+
+### General params ###
+font pango:'JetBrainsMono Nerd Font' 16
+
+### Env vars ###
+exec_always {
+  export XDG_SESSION_TYPE=wayland
+  export XDG_CURRENT_DESKTOP=sway
+  export GDK_BACKEND=wayland
+  export QT_QPA_PLATEFORM=waybar
+}
+
+### Wallpaper ###
+output * bg ~/.config/i3/wallpaper/adwaita-d.webp fill
+
+### Autostart ###&
+exec dunst
+exec nm-applet
+exec greenclip daemon
+exec firefox
+exec discord
+exec sleep 2 && thunderbird
+exec stacer
+exec_always waybar
+
+### Terminal ###
+bindsym $mod+Return exec alacritty
+bindsym Control+Mod1+t exec kitty
+bindsym Control+Mod1+y exec gnome-terminal
+
+### Notifications ###
+bindsym $mod+b exec dunstctl close
+bindsym $mod+Shift+b exec dunstctl close-all
+bindsym $mod+n exec dunstctl history-pop
+bindsym $mod+Shift+n exec dunstctl context
+
+### Volume ###
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+### Brightness (if works with Wayland backend) ###
+bindsym --release $mod+F11 exec brightnessctl set 10%-
+bindsym --release $mod+F12 exec brightnessctl set +10%
+
+### Application launcher ###
+bindsym $mod+Shift+d exec "dmenu_run"
+bindsym $mod+d exec "rofi -modi drun,run -show drun"
+
+### Window Management ###
+floating_modifier $mod
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+q focus parent
+bindsym $mod+Shift+A kill # kill focused window
+
+### Focus Movement ###
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+m focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+### Move Windows ###
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+m move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+### Layouts ###
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+f fullscreen toggle
+bindsym $mod+s layout stacking
+bindsym $mod+z layout tabbed
+bindsym $mod+e layout toggle split
+
+### Resize Mode ###
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym m resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+### Screenshots ###
+bindsym Print exec flameshot gui
+
+bindsym $mod+Tab workspace next_on_output
+bindsym $mod+Shift+Tab workspace prev_on_output
+bindsym $mod+p move workspace to output right
+
+# screen
+set $screen_1 "eDP-1"
+set $screen_2 "HDMI-1-1"
+
+### Workspaces ###
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1: "
+set $ws2 "2: "
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9: "
+set $ws10 "10: "
+
+set $ws11 "11: "
+set $ws12 "12"
+set $ws13 "13"
+set $ws14 "14"
+set $ws15 "15"
+set $ws16 "16"
+set $ws17 "17"
+set $ws18 "18"
+set $ws19 "19"
+set $ws20 "20"
+
+# switch to workspace
+bindsym $mod+ampersand workspace number $ws1
+bindsym $mod+eacute workspace number $ws2
+bindsym $mod+quotedbl workspace number $ws3
+bindsym $mod+apostrophe workspace number $ws4
+bindsym $mod+parenleft workspace number $ws5
+bindsym $mod+minus workspace number $ws6
+bindsym $mod+egrave workspace number $ws7
+bindsym $mod+underscore workspace number $ws8
+bindsym $mod+ccedilla workspace number $ws9
+bindsym $mod+agrave workspace number $ws10
+
+bindsym $mod+F1 workspace $ws11
+bindsym $mod+F2 workspace $ws12
+bindsym $mod+F3 workspace $ws13
+bindsym $mod+F4 workspace $ws14
+bindsym $mod+F5 workspace $ws15
+bindsym $mod+F6 workspace $ws16
+bindsym $mod+F7 workspace $ws17
+bindsym $mod+F8 workspace $ws18
+bindsym $mod+F9 workspace $ws19
+bindsym $mod+F10 workspace $ws20
+
+# move focused container to workspace
+bindsym $mod+Shift+ampersand move container to workspace number $ws1
+bindsym $mod+Shift+eacute move container to workspace number $ws2
+bindsym $mod+Shift+quotedbl move container to workspace number $ws3
+bindsym $mod+Shift+apostrophe move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+bindsym $mod+Shift+F1 move container to workspace $ws11
+bindsym $mod+Shift+F2 move container to workspace $ws12
+bindsym $mod+Shift+F3 move container to workspace $ws13
+bindsym $mod+Shift+F4 move container to workspace $ws14
+bindsym $mod+Shift+F5 move container to workspace $ws15
+bindsym $mod+Shift+F6 move container to workspace $ws16
+bindsym $mod+Shift+F7 move container to workspace $ws17
+bindsym $mod+Shift+F8 move container to workspace $ws18
+bindsym $mod+Shift+F9 move container to workspace $ws19
+bindsym $mod+Shift+F10 move container to workspace $ws20
+
+# assign the workspace to the screen
+workspace $ws1 output $screen_1 
+workspace $ws2 output $screen_1
+workspace $ws3 output $screen_1
+workspace $ws4 output $screen_1
+workspace $ws5 output $screen_1
+workspace $ws6 output $screen_1
+workspace $ws7 output $screen_1
+workspace $ws8 output $screen_1
+workspace $ws9 output $screen_1
+workspace $ws10 output $screen_1
+
+workspace $ws11 output $screen_1
+workspace $ws12 output $screen_1
+workspace $ws13 output $screen_1
+workspace $ws14 output $screen_1
+workspace $ws15 output $screen_1
+workspace $ws16 output $screen_1
+workspace $ws17 output $screen_1
+workspace $ws18 output $screen_1
+workspace $ws19 output $screen_1
+workspace $ws20 output $screen_1
+
+### Window Styling & Colors ###
+# window borders
+for_window [class=".*"] border pixel 2
+
+# class                 border  bground text    indicator child_border
+client.focused          #83CAFA #51A2DA #FFFFFF #83CAFA   #00af87
+client.focused_inactive #8C8C8C #4C4C4C #FFFFFF #4C4C4C   #8C8C8C
+client.unfocused        #4C4C4C #222222 #888888 #292D2E   #222222
+client.urgent           #EC69A0 #DB3279 #FFFFFF #DB3279   #DB3279
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+
+client.background       #FFFFFF
+
+### Exit ###
+bindsym $mod+Shift+r reload
+bindsym $mod+Shift+e exec "swaymsg exit"
+
+### Custom commands ###
+# launch custom powermenu
+bindsym $mod+Shift+p exec "sh $HOME/.config/polybar/scripts/powermenu.sh"
+# launch custom openvpn menu
+bindsym $mod+Shift+o exec "sh $HOME/.config/openvpn/openvpn_menu.sh"
+# launch custom terminal cd menu
+bindsym $mod+t exec "cd $HOME/.config/i3/scripts/code_menu && python code_menu.py -c kitty"
+# launch custom code menu
+bindsym $mod+Shift+t exec "cd $HOME/.config/i3/scripts/code_menu && python code_menu.py -c code"
+# greenclip
+bindsym $mod+Shift+g exec --no-startup-id "sh $greenclip_script"
+
