@@ -14,9 +14,42 @@ font pango:'JetBrainsMono Nerd Font' 16
 exec_always {
   export XDG_SESSION_TYPE=wayland
   export XDG_CURRENT_DESKTOP=sway
+  export XDG_SEAT=seat0
+  export XDG_VTNR=1
   export GDK_BACKEND=wayland
-  export QT_QPA_PLATEFORM=waybar
+  export QT_QPA_PLATFORM=wayland
 }
+
+### Workspaces ###
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1: "
+set $ws2 "2: "
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9: "
+set $ws10 "10: "
+
+set $ws11 "11: "
+set $ws12 "12"
+set $ws13 "13"
+set $ws14 "14"
+set $ws15 "15"
+set $ws16 "16"
+set $ws17 "17"
+set $ws18 "18"
+set $ws19 "19"
+set $ws20 "20"
+
+### Move some apps to specific workspaces ###
+assign [class="discord"] $ws8
+assign [class="discord"] $ws8  # fallback
+assign [app_id="thunderbird"] $ws9
+assign [app_id="stacer"] $ws10
 
 ### Wallpaper ###
 # WARN: Doesn't support .webp
@@ -30,7 +63,7 @@ exec firefox
 exec discord
 exec sleep 2 && thunderbird
 exec stacer
-exec_always waybar
+exec_always --no-startup-id sh -c 'pkill waybar; waybar &'
 
 ### Terminal ###
 bindsym $mod+Return exec alacritty
@@ -130,31 +163,6 @@ bindsym $mod+p move workspace to output right
 set $screen_1 "eDP-1"
 set $screen_2 "HDMI-1-1"
 
-### Workspaces ###
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: "
-set $ws2 "2: "
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9: "
-set $ws10 "10: "
-
-set $ws11 "11: "
-set $ws12 "12"
-set $ws13 "13"
-set $ws14 "14"
-set $ws15 "15"
-set $ws16 "16"
-set $ws17 "17"
-set $ws18 "18"
-set $ws19 "19"
-set $ws20 "20"
-
 # switch to workspace
 bindsym $mod+ampersand workspace number $ws1
 bindsym $mod+eacute workspace number $ws2
@@ -183,12 +191,12 @@ bindsym $mod+Shift+ampersand move container to workspace number $ws1
 bindsym $mod+Shift+eacute move container to workspace number $ws2
 bindsym $mod+Shift+quotedbl move container to workspace number $ws3
 bindsym $mod+Shift+apostrophe move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+parenleft move container to workspace number $ws5
+bindsym $mod+Shift+minus move container to workspace number $ws6
+bindsym $mod+Shift+egrave move container to workspace number $ws7
+bindsym $mod+Shift+underscore move container to workspace number $ws8
+bindsym $mod+Shift+ccedilla move container to workspace number $ws9
+bindsym $mod+Shift+agrave move container to workspace number $ws10
 
 bindsym $mod+Shift+F1 move container to workspace $ws11
 bindsym $mod+Shift+F2 move container to workspace $ws12
@@ -251,5 +259,5 @@ bindsym $mod+t exec "cd $HOME/.config/i3/scripts/code_menu && python code_menu.p
 # launch custom code menu
 bindsym $mod+Shift+t exec "cd $HOME/.config/i3/scripts/code_menu && python code_menu.py -c code"
 # greenclip
-bindsym $mod+Shift+g exec --no-startup-id "sh $greenclip_script"
+bindsym $mod+Shift+g exec "sh $greenclip_script"
 
