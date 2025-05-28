@@ -3,7 +3,7 @@
     "position": "top",
     "modules-left": ["sway/workspaces", "sway/window"],
     "modules-center": [],
-    "modules-right": ["network", "screen-brightness", "bluetooth", "pulseaudio", "battery", "cpu", "temperature", "memory", "clock", "tray"],
+    "modules-right": ["network", "backlight", "bluetooth", "pulseaudio", "battery", "cpu", "temperature", "memory", "clock", "tray"],
     "sway/window": {
         "max-length": 50,
         "format": "󰨡 {title}"
@@ -19,7 +19,7 @@
             "eDP-1": 10
         }
     },
-    "screen-brightness": {
+    "backlight": {
         "device": "intel_backlight",
         "format": " {percent}%"
     },
