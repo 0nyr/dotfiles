@@ -1,13 +1,36 @@
 # Ignore everything
 *
+pass.txt
 
-# Whitelist specific directories
+# Whitelist specific directories and their contents
 !sway/
+!sway/**
+
 !i3/
+!i3/**
+
 !hypr/
+!hypr/**
+
 !kitty/
+!kitty/**
+
 !nixpkgs/
+!nixpkgs/**
+
 !openvpn/
+!openvpn/**
+openvpn/client/pass.txt
+openvpn/imt/pass.txt
+
 !polybar/
+!polybar/**
+
 !rofi/
+!rofi/**
+
 !waybar/
+!waybar/**
+openvpn/insa/credentials_insa_vpn.env
+openvpn/imt/eduvpn.imt-atlantique.fr_internet_20250129_Rascoussier.ovpn
+openvpn/.env
