@@ -121,9 +121,16 @@ bindsym $mod+q focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# monitors (screens)
+# Set up the monitors
+exec_always --no-startup-id xrandr --output DP-0 --mode 2560x1440 --pos 0x0 --scale 1 --primary
+exec_always --no-startup-id xrandr --output DP-2 --mode 3840x2160 --pos 2560x0 --scale 1
+
 # screen 
-set $screen_1 "eDP-1"
-set $screen_2 "HDMI-1-1"
+# set $screen_1 "eDP-1"
+# set $screen_2 "HDMI-1-1"
+set $screen_1 "DP-0"
+set $screen_2 "DP-2"
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -203,20 +210,20 @@ workspace $ws4 output $screen_1
 workspace $ws5 output $screen_1
 workspace $ws6 output $screen_1
 workspace $ws7 output $screen_1
-workspace $ws8 output $screen_1
-workspace $ws9 output $screen_1
-workspace $ws10 output $screen_1
+workspace $ws8 output $screen_2
+workspace $ws9 output $screen_2
+workspace $ws10 output $screen_2
 
-workspace $ws11 output $screen_1
-workspace $ws12 output $screen_1
-workspace $ws13 output $screen_1
-workspace $ws14 output $screen_1
-workspace $ws15 output $screen_1
-workspace $ws16 output $screen_1
-workspace $ws17 output $screen_1
-workspace $ws18 output $screen_1
-workspace $ws19 output $screen_1
-workspace $ws20 output $screen_1
+workspace $ws11 output $screen_2
+workspace $ws12 output $screen_2
+workspace $ws13 output $screen_2
+workspace $ws14 output $screen_2
+workspace $ws15 output $screen_2
+workspace $ws16 output $screen_2
+workspace $ws17 output $screen_2
+workspace $ws18 output $screen_2
+workspace $ws19 output $screen_2
+workspace $ws20 output $screen_2
 
 # switch next/previous workspace
 bindsym --whole-window $mod+Tab workspace next_on_output
