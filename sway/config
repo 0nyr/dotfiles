@@ -62,7 +62,7 @@ assign [app_id="stacer"] $ws10
 
 ### Wallpaper ###
 # WARN: Doesn't support .webp
-output "*" bg /home/onyr/Pictures/wallpapers/IMG_0307.JPG fill
+output "*" bg wallpapers/IMG_0307.JPG fill
 
 ### Autostart ###&
 exec dunst
