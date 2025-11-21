@@ -1,4 +1,4 @@
-# Onyr i3 config
+# Onyr i3-like Sway (Wayland) config
 
 ### Layout & Keyboard ###
 input * {
@@ -19,6 +19,10 @@ exec_always {
   export GDK_BACKEND=wayland
   export QT_QPA_PLATFORM=wayland
 }
+
+# Start polkit agent for graphical password prompts
+# WARN: pkill: pattern that searches for process name longer than 15 characters will result in zero matches
+exec_always --no-startup-id sh -c 'pkill lxqt-policykit; lxqt-policykit-agent &'
 
 ### Stuff for OBS screen recording ###
 # Make portals see the Wayland session (needed for PipeWire capture)
