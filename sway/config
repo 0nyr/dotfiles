@@ -58,7 +58,7 @@ set $ws20 "20"
 assign [class="discord"] $ws8
 assign [class="discord"] $ws8  # fallback
 assign [app_id="thunderbird"] $ws9
-assign [app_id="stacer"] $ws10
+assign [app_id="gnome-system-monitor"] $ws10
 
 ### Wallpaper ###
 # WARN: Doesn't support .webp
@@ -71,7 +71,7 @@ exec greenclip daemon
 exec firefox
 exec discord
 exec sleep 2 && thunderbird
-exec stacer
+exec gnome-system-monitor
 exec megasync
 exec_always --no-startup-id sh -c 'pkill waybar; waybar &'
 

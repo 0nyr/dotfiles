@@ -56,9 +56,8 @@ set $ws20 "20"
 
 ### Move some apps to specific workspaces ###
 assign [class="discord"] $ws8
-assign [class="discord"] $ws8  # fallback
 assign [app_id="thunderbird"] $ws9
-assign [app_id="stacer"] $ws10
+assign [app_id="gnome-system-monitor"] $ws10
 
 ### Wallpaper ###
 # WARN: Doesn't support .webp
@@ -71,7 +70,7 @@ exec greenclip daemon
 exec firefox
 exec discord
 exec sleep 2 && thunderbird
-exec stacer
+exec gnome-system-monitor
 exec megasync
 exec_always --no-startup-id sh -c 'pkill waybar; waybar &'
 
@@ -171,7 +170,7 @@ bindsym $mod+p move workspace to output right
 
 # screen
 set $screen_1 "DP-2"
-set $screen_2 "DP-0"
+set $screen_2 "DP-1"
 
 # Output configuration
 output $screen_1 mode 2560x1440 pos 0 0 scale 1
@@ -229,17 +228,17 @@ workspace $ws2 output $screen_1
 workspace $ws3 output $screen_1
 workspace $ws4 output $screen_1
 workspace $ws5 output $screen_1
-workspace $ws6 output $screen_1
-workspace $ws7 output $screen_1
+workspace $ws6 output $screen_2
+workspace $ws7 output $screen_2
 workspace $ws8 output $screen_2
 workspace $ws9 output $screen_2
 workspace $ws10 output $screen_2
 
-workspace $ws11 output $screen_2
-workspace $ws12 output $screen_2
-workspace $ws13 output $screen_2
-workspace $ws14 output $screen_2
-workspace $ws15 output $screen_2
+workspace $ws11 output $screen_1
+workspace $ws12 output $screen_1
+workspace $ws13 output $screen_1
+workspace $ws14 output $screen_1
+workspace $ws15 output $screen_1
 workspace $ws16 output $screen_2
 workspace $ws17 output $screen_2
 workspace $ws18 output $screen_2
