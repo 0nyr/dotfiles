@@ -1,9 +1,28 @@
 {
     "layer": "top",
     "position": "top",
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-left": ["sway/workspaces", "sway/window"],
     "modules-center": [],
-    "modules-right": ["network", "bluetooth", "pulseaudio", "battery", "cpu", "temperature", "memory", "clock", "tray"],
+    "modules-right": ["network", "backlight", "bluetooth", "pulseaudio", "battery", "cpu", "temperature", "memory", "clock", "tray"],
+    "sway/window": {
+        "max-length": 50,
+        "format": "󰨡 {title}"
+    },
+    "sway/workspaces": {
+        "format": "{icon} {name}",
+        "format-icons": {
+        "default": "",
+        "focused": "",
+        "urgent": ""
+        },
+        "persistent-workspaces": {
+            "eDP-1": 10
+        }
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": " {percent}%"
+    },
     "hyprland/window": {
         "max-length": 50,
         "format": "󰨡 {title}"
