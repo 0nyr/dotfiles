@@ -359,5 +359,39 @@
         "plaintext": true,
         "markdown": true,
         "scminput": true
-    }
+    },
+    "workbench.editor.empty.hint": "hidden",
+    "chat.tools.terminal.autoApprove": {
+        "/^nix develop -c bash -c \"python -c 'from pyvrp import solve, Result, Statistics; help\\(Result\\)'\" 2>&1 \\| head -100$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^nix develop -c bash -c \"python -c 'from pyvrp import Statistics; help\\(Statistics\\)'\" 2>&1 \\| head -80$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "nix": true,
+        "sed": true,
+        "/^python - <<'PY'\nfrom pathlib import Path\npath = Path\\('/home/onyr/code/phd/VRPTW-benchmarks/papers/conference/main\\.tex'\\)\nfor i, line in enumerate\\(path\\.read_text\\(\\)\\.splitlines\\(\\), start=1\\):\n    if 20 <= i <= 40:\n        print\\(f\"\\{i\\}: \\{line\\}\"\\)\nPY$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    },
+    "diffEditor.maxComputationTime": 0,
+    "julia.enableCrashReporter": false,
+    "chat.tools.urls.autoApprove": {
+        "https://www.sintef.no/projectweb/top/vrptw/solomon-benchmark": true,
+        "https://www.sintef.no": {
+            "approveRequest": false,
+            "approveResponse": true
+        }
+    },
+    "diffEditor.renderSideBySide": true,
+    "diffEditor.useInlineViewWhenSpaceIsLimited": false,
+    "github.copilot.chat.anthropic.tools.websearch.enabled": true,
+    "claudeCode.preferredLocation": "panel",
+    "claudeCode.respectGitIgnore": false,
+    "claudeCode.selectedModel": "opus",
+    "chat.viewSessions.orientation": "stacked",
+    "workbench.colorTheme": "Visual Studio 2017 Dark - C++",
 }

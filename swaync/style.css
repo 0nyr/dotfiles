@@ -1,0 +1,131 @@
+/*
+ * swaync style — JetBrainsMono Nerd Font, large text.
+ * Colors from kitty (One Dark palette): ~/.config/kitty/kitty.conf.
+ *
+ * Live-reload after editing:  swaync-client -rs   (CSS)
+ *                             swaync-client -R    (config.json)
+ * NOTE: creating/moving this file the first time needs a swaync restart:
+ *   pkill -f 'bin/swaync$'; swaync >/dev/null 2>&1 &
+ */
+
+@define-color accent  #61afef;   /* kitty color4  (blue)       */
+@define-color accent2 #56b6c2;   /* kitty color6  (cyan)       */
+@define-color bg      #22272e;   /* kitty background           */
+@define-color bg2     #282c34;   /* kitty color0  (surface)    */
+@define-color fg      #adbac7;   /* kitty foreground           */
+@define-color dim     #979eab;   /* kitty color7  (muted)      */
+@define-color urgent  #e06c75;   /* kitty color1  (red)        */
+
+* {
+    /* base font — bump font-size to scale everything up/down at once */
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 20px;
+}
+
+/* ── Floating popups ─────────────────────────────────────────────── */
+.floating-notifications.background .notification-row .notification-background {
+    background: @bg;
+    border: 2px solid @accent2;
+    border-radius: 16px;
+    margin: 10px 14px;
+    padding: 4px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+}
+
+.notification-content {
+    padding: 12px;
+    margin: 0;
+}
+
+.summary {
+    font-size: 24px;
+    font-weight: bold;
+    color: @accent;
+}
+
+.body {
+    font-size: 20px;
+    color: @fg;
+}
+
+.time {
+    font-size: 15px;
+    color: @dim;
+}
+
+.notification.critical .notification-background,
+.control-center .notification.critical .notification-background {
+    border-color: @urgent;
+    box-shadow: 0 0 12px rgba(224, 108, 117, 0.6);
+}
+
+/* close (X) button */
+.close-button {
+    background: @accent2;
+    color: @bg;
+    border-radius: 50%;
+    margin: 8px;
+    padding: 2px 9px;
+}
+.close-button:hover {
+    background: @urgent;
+    color: @fg;
+}
+
+/* inline action buttons */
+.notification-action {
+    background: @bg2;
+    color: @fg;
+    border: 1px solid @accent2;
+    border-radius: 10px;
+    margin: 6px;
+    padding: 6px 12px;
+}
+.notification-action:hover {
+    background: @accent2;
+    color: @bg;
+}
+
+/* ── Control center (the $mod+n panel) ───────────────────────────── */
+.control-center {
+    background: @bg;
+    border: 2px solid @accent2;
+    border-radius: 18px;
+    padding: 14px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55);
+}
+
+.control-center .notification-background {
+    background: @bg2;
+    border-radius: 14px;
+    margin: 6px 2px;
+}
+
+.widget-title {
+    font-size: 22px;
+    color: @accent;
+    margin: 8px 4px 12px 4px;
+}
+.widget-title > button {
+    background: @bg2;
+    color: @fg;
+    border-radius: 10px;
+    padding: 4px 14px;
+}
+.widget-title > button:hover {
+    background: @accent2;
+    color: @bg;
+}
+
+.widget-dnd {
+    font-size: 20px;
+    color: @fg;
+    margin: 4px 4px 10px 4px;
+}
+.widget-dnd > switch {
+    border-radius: 12px;
+    background: @bg2;
+}
+.widget-dnd > switch:checked {
+    background: @accent;
+}

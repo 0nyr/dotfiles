@@ -20,9 +20,7 @@ exec_always {
   export QT_QPA_PLATFORM=wayland
 }
 
-# Start polkit agent for graphical password prompts
-# WARN: pkill: pattern that searches for process name longer than 15 characters will result in zero matches
-exec_always --no-startup-id sh -c 'pkill lxqt-policykit; lxqt-policykit-agent &'
+# Polkit agent is started via systemd user service (see modules/gui/sway.nix at /home/onyr/nixos-config)
 
 ### Stuff for OBS screen recording ###
 # Make portals see the Wayland session (needed for PipeWire capture)
@@ -65,7 +63,6 @@ assign [app_id="gnome-system-monitor"] $ws10
 output "*" bg wallpapers/IMG_0307.JPG fill
 
 ### Autostart ###&
-exec dunst
 exec nm-applet
 exec greenclip daemon
 exec firefox
@@ -74,17 +71,20 @@ exec sleep 2 && thunderbird
 exec gnome-system-monitor
 exec megasync
 exec_always --no-startup-id sh -c 'pkill waybar; waybar &'
+# start the notification daemon at login so it's warm (avoids the first popup being
+# lost to lazy DBus activation). swaync is the chosen daemon (not dunst/mako).
+exec_always --no-startup-id sh -c 'pkill -f "bin/swaync$"; swaync >/dev/null 2>&1 &'
 
 ### Terminal ###
 bindsym $mod+Return exec alacritty
 bindsym Control+Mod1+t exec kitty
 bindsym Control+Mod1+y exec gnome-terminal
 
-### Notifications ###
-bindsym $mod+b exec dunstctl close
-bindsym $mod+Shift+b exec dunstctl close-all
-bindsym $mod+n exec dunstctl history-pop
-bindsym $mod+Shift+n exec dunstctl context
+### Notifications (swaync — see modules/packages.nix; dunst is no longer used) ###
+bindsym $mod+b exec swaync-client --close-latest
+bindsym $mod+Shift+b exec swaync-client --close-all
+bindsym $mod+n exec swaync-client --toggle-panel
+bindsym $mod+Shift+n exec swaync-client --toggle-dnd
 
 ### Volume ###
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
@@ -170,8 +170,7 @@ bindsym $mod+Shift+Tab workspace prev_on_output
 bindsym $mod+p move workspace to output right
 
 # screen
-set $screen_1 "eDP-1"
-set $screen_2 "HDMI-1-1"
+set $screen_1 "eDP-1" # default laptop screen
 
 # switch to workspace
 bindsym $mod+ampersand workspace number $ws1
@@ -270,4 +269,6 @@ bindsym $mod+t exec "cd $HOME/.config/i3/scripts/code_menu && python code_menu.p
 bindsym $mod+Shift+t exec "cd $HOME/.config/i3/scripts/code_menu && python code_menu.py -c code"
 # greenclip
 bindsym $mod+Shift+g exec "sh $greenclip_script"
+# toggle screen mirroring (laptop eDP-1 -> projector/TV on USB-C). See phd_note_vault docs.
+bindsym $mod+Shift+c exec "$HOME/.config/sway/scripts/mirror-toggle.sh"
 
