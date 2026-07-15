@@ -11,14 +11,12 @@ set $mod Mod4
 font pango:'JetBrainsMono Nerd Font' 16
 
 ### Env vars ###
-exec_always {
-  export XDG_SESSION_TYPE=wayland
-  export XDG_CURRENT_DESKTOP=sway
-  export XDG_SEAT=seat0
-  export XDG_VTNR=1
-  export GDK_BACKEND=wayland
-  export QT_QPA_PLATFORM=wayland
-}
+# Removed a dead `exec_always { export ... }` block (2026-07-15): env exports
+# inside a sway `exec` run in a throwaway subshell and never reach the session
+# or terminals (verified: XDG_SESSION_TYPE stayed `tty`, GDK_BACKEND/QT_QPA_PLATFORM
+# were empty). XDG_* come from logind; SSH_AUTH_SOCK is set via NixOS
+# `environment.interactiveShellInit`. If GDK_BACKEND/QT_QPA_PLATFORM ever need
+# forcing, set them where they actually propagate (session launch), not here.
 
 # Polkit agent is started via systemd user service (see modules/gui/sway.nix at /home/onyr/nixos-config)
 
