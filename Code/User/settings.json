@@ -3,18 +3,30 @@
     "latex-workshop.intellisense.citation.backend": "biblatex",
     "latex-workshop.latex.recipe.default": "lastUsed",
     "latex-workshop.latex.recipes": [
+        // --- Onyr's project recipes (added 2026-08-24, ms12) ---------------
+        // "manuscript": the thesis. Its List of Notation uses `glossaries` in
+        // NOIDX mode on purpose, so there is NO makeglossaries step: never
+        // build it with the "pdflatex with glossaries" recipe below, which
+        // would also skip biber and leave every citation undefined. Biber is
+        // driven by latexmk through manuscript/.latexmkrc ($bibtex_use = 2).
+        // "arXiv": paper0, paper1, the kayros tech report and the hexaly
+        // report. All four are biblatex + biber, pdflatex, no shell-escape.
+        {
+            "name": "manuscript",
+            "tools": [
+                "latexmk_manuscript"
+            ]
+        },
+        {
+            "name": "arXiv",
+            "tools": [
+                "latexmk_arxiv"
+            ]
+        },
         {
             "name": "latexmk",
             "tools": [
                 "latexmk"
-            ]
-        },
-        {
-            "name": "pdflatex with glossaries",
-            "tools": [
-                "pdflatex",
-                "makeglossaries",
-                "pdflatex"
             ]
         },
         {
@@ -73,6 +85,49 @@
         }
     ],
     "latex-workshop.latex.tools": [
+        // --- Onyr's project-pinned tools (added 2026-08-24, ms12) -----------
+        // Each pins its own nix dev shell, so a build works no matter how VS
+        // Code was launched. texlive is NOT in any global profile on this
+        // machine, so the unpinned tools below only work when VS Code
+        // inherits a `nix develop` PATH. `-cd` makes latexmk chdir to the
+        // document's directory, which is what lets the repo's own .latexmkrc
+        // be picked up. No -shell-escape: neither the thesis nor the reports
+        // use minted, and arXiv forbids write18 anyway, so building without
+        // it locally catches the problem before an upload rather than after.
+        {
+            "name": "latexmk_manuscript",
+            "command": "nix",
+            "args": [
+                "develop",
+                "path:/home/onyr/code/phd/phd-thesis-workspace/nix-dev",
+                "--command",
+                "latexmk",
+                "-cd",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "latexmk_arxiv",
+            "command": "nix",
+            "args": [
+                "develop",
+                "path:/home/onyr/code/phd/report/nix-dev",
+                "--command",
+                "latexmk",
+                "-cd",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "%DOC%"
+            ],
+            "env": {}
+        },
         {
             "name": "pdflatex",
             "command": "pdflatex",
@@ -608,4 +663,5 @@
     "claudeCode.respectGitIgnore": false,
     "claudeCode.selectedModel": "opus",
     "chat.viewSessions.orientation": "stacked",
+    "latex-workshop.latex.autoBuild.run": "never",
 }
