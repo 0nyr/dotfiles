@@ -2,6 +2,8 @@
 set nocompatible
 
 let g:markdown_fenced_languages = ['python', 'py=python', 'c', 'cpp', 'c++=cpp']
+let g:c_functions = 1
+let g:c_function_pointers = 1
 filetype plugin indent on
 syntax enable
 
