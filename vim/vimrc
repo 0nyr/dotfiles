@@ -13,6 +13,51 @@ set background=dark
 colorscheme onyr
 
 set mouse=a
+
+" Connect the clipboard registers to the existing Wayland clipboard tools.
+if has('clipboard_provider') && !empty($WAYLAND_DISPLAY)
+  function! s:ClipboardAvailable() abort
+    return executable('wl-copy') && executable('wl-paste')
+  endfunction
+
+  function! s:ClipboardCopy(reg, type, lines) abort
+    let l:command = 'wl-copy --type text/plain;charset=utf-8'
+    if a:reg ==# '*'
+      let l:command .= ' --primary'
+    endif
+    let l:text = join(a:lines, "\n")
+    if a:type ==# 'V'
+      let l:text .= "\n"
+    endif
+    call system(l:command, l:text)
+  endfunction
+
+  function! s:ClipboardPaste(reg) abort
+    let l:command = 'wl-paste --no-newline --type text'
+    if a:reg ==# '*'
+      let l:command .= ' --primary'
+    endif
+    let l:text = system(l:command)
+    if v:shell_error
+      return []
+    endif
+    let l:linewise = l:text =~# "\n$"
+    let l:lines = split(l:text, "\n", 1)
+    if l:linewise
+      call remove(l:lines, -1)
+    endif
+    return [l:linewise ? 'V' : 'v', l:lines]
+  endfunction
+
+  let v:clipproviders['wl_clipboard'] = {
+        \ 'available': function('s:ClipboardAvailable'),
+        \ 'copy': {'+': function('s:ClipboardCopy'), '*': function('s:ClipboardCopy')},
+        \ 'paste': {'+': function('s:ClipboardPaste'), '*': function('s:ClipboardPaste')}
+        \ }
+  set clipmethod^=wl_clipboard
+  set clipboard=unnamedplus
+endif
+
 set number
 set cursorline
 set laststatus=2
