@@ -1,0 +1,6 @@
+# Lock and blank displays after 2 hours of inactivity.
+timeout 7200 'swaylock -f'
+timeout 7200 'swaymsg "output * power off"' resume 'swaymsg "output * power on"'
+before-sleep 'swaylock -f'
+after-resume 'swaymsg "output * power on"'
+lock 'swaylock -f'

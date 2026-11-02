@@ -2,13 +2,16 @@
 
 # ROfi menu
 
-OPTIONS=" Lock\n󰗽 Logout\n󱄋 Reboot\n⏻ Shutdown\n Cancel"
-CHOICE=$(echo -e $OPTIONS | rofi -dmenu -p "System")
+OPTIONS=" Lock\n⏾ Suspend\n󰗽 Logout\n󱄋 Reboot\n⏻ Shutdown\n Cancel"
+CHOICE=$(printf '%b\n' "$OPTIONS" | rofi -dmenu -p "System")
 
 case $CHOICE in
     " Lock")
-        # lock i3 session (keep )
-        $HOME/.config/polybar/scripts/lock.sh
+        "$HOME/.config/polybar/scripts/lock.sh"
+        ;;
+    "⏾ Suspend")
+        # swayidle locks the session before logind suspends it.
+        systemctl suspend
         ;;
     "󰗽 Logout")
         # thunderbird doexn't exit properly at logout

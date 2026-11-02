@@ -34,7 +34,7 @@ BLUE="${BLUE}ff"
 CYAN="${CYAN}ff"
 
 # Run i3lock-color with the specified colors
-i3lock-color \
+exec i3lock-color \
        --color=$BACKGROUND_WINDOW_DARK --inside-color=$BACKGROUND_WINDOW_NORMAL \
        --insidever-color=$ORANGE --ringver-color=$YELLOW \
        --insidewrong-color=$RED --ringwrong-color=$RED \
@@ -49,4 +49,4 @@ i3lock-color \
        --radius=200 \
        --time-font="JetBrains Mono Nerd Font" --date-font="JetBrains Mono Nerd Font" \
        --layout-font="JetBrains Mono Nerd Font" --verif-font="JetBrains Mono Nerd Font" \
-       --wrong-font="JetBrains Mono Nerd Font"
+       --wrong-font="JetBrains Mono Nerd Font" "$@"

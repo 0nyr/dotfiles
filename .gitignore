@@ -6,6 +6,12 @@ pass.txt
 !sway/
 !sway/**
 
+!swayidle/
+!swayidle/config
+
+!swaylock/
+!swaylock/config
+
 !i3/
 !i3/**
 

@@ -1,0 +1,35 @@
+# Match Kitty's palette in ~/.config/kitty/kitty.conf.
+color=22272e
+font=JetBrainsMono Nerd Font
+font-size=32
+# Default radius is 50. A radius of 200 makes the diameter 4 times larger.
+indicator-radius=200
+indicator-thickness=40
+indicator-idle-visible
+line-uses-inside
+
+inside-color=22272e
+inside-clear-color=22272e
+inside-caps-lock-color=22272e
+inside-ver-color=22272e
+inside-wrong-color=22272e
+
+ring-color=61afef
+ring-clear-color=56b6c2
+ring-caps-lock-color=e5c07b
+ring-ver-color=98c379
+ring-wrong-color=e06c75
+key-hl-color=98c379
+bs-hl-color=d19a66
+caps-lock-key-hl-color=e5c07b
+caps-lock-bs-hl-color=d19a66
+separator-color=22272e
+
+text-color=adbac7
+text-clear-color=adbac7
+text-caps-lock-color=e5c07b
+text-ver-color=adbac7
+text-wrong-color=e06c75
+layout-bg-color=282c34
+layout-border-color=61afef
+layout-text-color=adbac7
