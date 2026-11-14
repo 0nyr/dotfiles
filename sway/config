@@ -60,6 +60,8 @@ set $ws20 "20"
 assign [class="discord"] $ws8
 assign [class="discord"] $ws8  # fallback
 assign [app_id="thunderbird"] $ws9
+assign [app_id="obsidian"] $ws6
+assign [class="obsidian"] $ws6  # XWayland fallback
 assign [app_id="gnome-system-monitor"] $ws10
 
 ### Wallpaper ###
@@ -72,6 +74,7 @@ exec greenclip daemon
 exec firefox
 exec discord
 exec sleep 2 && thunderbird
+exec obsidian
 exec gnome-system-monitor
 exec megasync
 exec_always --no-startup-id sh -c 'pkill waybar; waybar &'
