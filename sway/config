@@ -62,7 +62,7 @@ assign [class="discord"] $ws8  # fallback
 assign [app_id="thunderbird"] $ws9
 assign [app_id="obsidian"] $ws6
 assign [class="obsidian"] $ws6  # XWayland fallback
-assign [app_id="gnome-system-monitor"] $ws10
+assign [app_id="org.gnome.SystemMonitor"] $ws10
 
 ### Wallpaper ###
 # WARN: Doesn't support .webp
