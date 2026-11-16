@@ -26,10 +26,14 @@ font pango:'JetBrainsMono Nerd Font' 16
 
 # Polkit agent is started via systemd user service (see modules/gui/sway.nix at /home/onyr/nixos-config)
 
-### Stuff for OBS screen recording ###
-# Make portals see the Wayland session (needed for PipeWire capture)
-exec_always systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
-exec_always dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+### systemd and portal integration ###
+# NixOS snippet (/etc/sway/config.d/nixos.conf). It imports the Wayland
+# variables into the systemd user and D-Bus environments, and starts
+# sway-session.target, which activates graphical-session.target. Without that
+# target, xdg-desktop-portal refuses to start (Requisite=graphical-session.target
+# since 1.22), which breaks screen sharing, flameshot and file choosers.
+include /etc/sway/config.d/*
+exec_always systemctl --user import-environment XDG_CURRENT_DESKTOP
 
 ### Workspaces ###
 # Define names for default workspaces for which we configure key bindings later on.
