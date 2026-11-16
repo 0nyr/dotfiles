@@ -40,3 +40,6 @@ openvpn/imt/pass.txt
 openvpn/insa/credentials_insa_vpn.env
 openvpn/imt/eduvpn.imt-atlantique.fr_internet_20250129_Rascoussier.ovpn
 openvpn/.env
+
+!flameshot/
+!flameshot/flameshot.ini
