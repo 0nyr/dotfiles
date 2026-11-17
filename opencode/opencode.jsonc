@@ -1,0 +1,69 @@
+// opencode v2 configuration of Onyr (Kenzae).
+// Local models are served by llama-swap (NixOS, hosts/kenzae/local-llm.nix in
+// nixos-config) on http://127.0.0.1:8080/v1. Notes: phd_note_vault/docs/tools/ai/opencode.md
+{
+  "$schema": "https://opencode.ai/config.json",
+  "update": "disable",
+  "share": "disabled",
+  "model": "llamacpp/qwen3.5-9b",
+  // Title generation uses the 9B without thinking. During a session on the
+  // 35B model, this forces llama-swap to swap models once per title.
+  "agents": { "title": { "model": "llamacpp/qwen3.5-9b:nothink" } },
+  "providers": {
+    "llamacpp": {
+      "name": "llama.cpp (local, llama-swap)",
+      // Bundled provider package. Packages of the form "aisdk:@ai-sdk/..." are
+      // fetched from npm at runtime and would break offline use.
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": { "baseURL": "http://127.0.0.1:8080/v1", "apiKey": "sk-local" },
+      // Model keys must match the llama-swap model names. The ":nothink"
+      // variants are aliases served by the same process (thinking off).
+      // limit.context must equal the -c of llama-server.
+      "models": {
+        "qwen3.5-9b": {
+          "name": "Qwen3.5 9B (local, thinking)",
+          "modelID": "qwen3.5-9b",
+          "capabilities": { "tools": true, "input": ["text"] },
+          "limit": { "context": 65536, "output": 8192 }
+        },
+        "qwen3.5-9b:nothink": {
+          "name": "Qwen3.5 9B (local, no thinking)",
+          "modelID": "qwen3.5-9b:nothink",
+          "capabilities": { "tools": true, "input": ["text"] },
+          "limit": { "context": 65536, "output": 8192 }
+        },
+        "qwen3.6-35b-a3b": {
+          "name": "Qwen3.6 35B-A3B (local, thinking)",
+          "modelID": "qwen3.6-35b-a3b",
+          "capabilities": { "tools": true, "input": ["text"] },
+          "limit": { "context": 32768, "output": 8192 }
+        },
+        "qwen3.6-35b-a3b:nothink": {
+          "name": "Qwen3.6 35B-A3B (local, no thinking)",
+          "modelID": "qwen3.6-35b-a3b:nothink",
+          "capabilities": { "tools": true, "input": ["text"] },
+          "limit": { "context": 32768, "output": 8192 }
+        }
+      }
+    }
+  },
+  // Every shell command, edit, access outside the project and web access asks first.
+  // The last matching rule wins, so the denies come after the asks.
+  "permissions": [
+    { "action": "shell", "resource": "*", "effect": "ask" },
+    { "action": "edit", "resource": "*", "effect": "ask" },
+    { "action": "external_directory", "resource": "*", "effect": "ask" },
+    { "action": "webfetch", "resource": "*", "effect": "ask" },
+    { "action": "websearch", "resource": "*", "effect": "ask" },
+    { "action": "shell", "resource": "sudo *", "effect": "deny" },
+    { "action": "shell", "resource": "rm -rf *", "effect": "deny" }
+  ],
+  // Hard denies, which also override "Allow always" answers and --auto.
+  "policies": [
+    { "action": "tool.use", "resource": "shell:sudo *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:*sudo *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:rm -rf *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:rm -fr *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:*rm -rf *", "effect": "deny" }
+  ]
+}
