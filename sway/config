@@ -84,7 +84,10 @@ exec megasync
 exec_always --no-startup-id sh -c 'pkill waybar; waybar &'
 # start the notification daemon at login so it's warm (avoids the first popup being
 # lost to lazy DBus activation). swaync is the chosen daemon (not dunst/mako).
-exec_always --no-startup-id sh -c 'pkill -f "bin/swaync$"; swaync >/dev/null 2>&1 &'
+# swaync is a GTK4 program, and GTK4 renders through Vulkan. Without the variable,
+# the Vulkan loader also loads the NVIDIA driver, which keeps /dev/nvidia0 open and
+# the NVIDIA GPU awake (checked 2026-11-17). Hiding it makes swaync render on Intel.
+exec_always --no-startup-id sh -c 'pkill -f "(^|/)swaync$"; VK_LOADER_DRIVERS_DISABLE="*nvidia*" swaync >/dev/null 2>&1 &'
 
 ### Terminal ###
 bindsym $mod+Return exec alacritty
